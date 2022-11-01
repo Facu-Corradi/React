@@ -1,0 +1,12 @@
+.navegador{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.navegador li {
+padding-right: 10px;
+}
+
+
