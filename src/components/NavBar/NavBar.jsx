@@ -1,22 +1,23 @@
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget';
 import "./navBar.css";
+import {Link} from "react-router-dom";
 
 function NavBar() {
 return (
     <nav >
         <ul className="navegador">
             <li>
-                <a href="/">Funko Pop</a>
+                <Link to="/">Funko Pop</Link>
             </li>
             <li>
-                <a href="/">Harry Potter</a>
+                <Link to="/">Harry Potter</Link>
             </li>
             <li>
-                <a href="/">Game Of Thrones</a>
+                <Link to="/">Game Of Thrones</Link>
             </li>
             <li>
-                <a href="/"><CartWidget/></a>
+                <Link to="/"><CartWidget/></Link>
             </li>
         </ul>
     </nav>
