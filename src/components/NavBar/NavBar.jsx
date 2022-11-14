@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 function NavBar() {
 return (
-    <nav >
+    <nav className='nav' >
         <ul className="navegador">
             <li>
                 <Link to="/">Funko Pop</Link>
