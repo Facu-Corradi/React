@@ -8,9 +8,7 @@ return new Promise((resolve) => {
     }, 100);
     } else {
     setTimeout(() => {
-        let itemsRequested = products.filter(
-        (Item) => Item.category === idCategory
-        );
+        let itemsRequested = products.filter((Item) => Item.category === idCategory);
         resolve(itemsRequested);
     }, 100);
     }
@@ -25,7 +23,7 @@ return new Promise((resolve, reject) => {
 
     setTimeout(() => {
     resolve(itemRequested);
-    }, 2000);
+    }, 100);
 });
 }
 

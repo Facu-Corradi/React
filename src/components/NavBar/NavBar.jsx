@@ -11,10 +11,10 @@ return (
                 <Link to="/">Funko Pop</Link>
             </li>
             <li>
-                <Link to="/">Harry Potter</Link>
+                <Link to="/category/GOT">Game Of Thrones</Link>
             </li>
             <li>
-                <Link to="/">Game Of Thrones</Link>
+                <Link to="/category/HarryP">Harry Potter</Link>
             </li>
             <li>
                 <Link to="/"><CartWidget/></Link>
