@@ -1,0 +1,11 @@
+.divForm {
+    display: "flex";
+    margin-bottom: 10px;
+    
+}
+
+.labelForm {
+    width: "100px";
+    margin-right: 5px;
+    color: black;
+}

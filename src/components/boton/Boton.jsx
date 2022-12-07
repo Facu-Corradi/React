@@ -1,12 +1,19 @@
-import React from 'react'
-import "./boton.css"
+import "./boton.css";
+import React, { useState } from "react";
 
 function Boton(props) {
+  let [colorBtn, setColorBtn] = useState(props.colorBtn);
+
   return (
-    <button className="boton">
-        {props.children}
+    <button
+      disabled={props.disabled}
+      onClick={props.onTouchButton}
+      style={{ backgroundColor: colorBtn, marginBotton: "10px" }}
+      className="btn"
+    >
+      {props.children}
     </button>
-  )
+  );
 }
 
-export default Boton
+export default Boton;

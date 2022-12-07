@@ -1,10 +1,12 @@
 import React from 'react'
 import "./Item.css";
-import Boton from '../boton/Boton';
+import Boton from '../Boton/Boton';
 import { Link } from "react-router-dom";
+
 
 function Item({ title, imgurl, price, id }) {
     const urlDetail = `/detail/${id}`;
+
     return (
     <div className="card">
         <div className="card-img">
@@ -15,8 +17,9 @@ function Item({ title, imgurl, price, id }) {
             <h4 className="priceTag">$ {price}</h4>
         </div>
         <Link to={urlDetail} className='boton'>
-            <Boton>Ver mas</Boton>
+            <Boton className="botonItem" >Ver mas</Boton>
         </Link>
+
     </div>
     );
 }

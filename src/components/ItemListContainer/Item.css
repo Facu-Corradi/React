@@ -9,7 +9,13 @@
     background-color: #fff;
     overflow: hidden;  
     transition: all 0.20s ease-in;
-    cursor: pointer;
+}
+
+.botonItem {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .card-img{

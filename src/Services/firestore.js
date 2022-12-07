@@ -1,5 +1,85 @@
-const products = [ 
-    {
+
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, doc, getDoc, where, query, addDoc, orderBy, limit } from "firebase/firestore"
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCOn5s1dFyjMYa9s8Ms-jAaRvGugdIxAEc",
+    authDomain: "funko-react-d2227.firebaseapp.com",
+    projectId: "funko-react-d2227",
+    storageBucket: "funko-react-d2227.appspot.com",
+    messagingSenderId: "535201838337",
+    appId: "1:535201838337:web:5fd51ae888e996ad3dd700"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const DB = getFirestore(app)
+
+
+export default async function getItems(){
+    const colectionProducts = collection(DB, "products");
+    const documentos = await getDocs (colectionProducts);
+    const documentsData = documentos.docs.map((doc) => {
+        return { 
+            ...doc.data(),
+            id: doc.id}
+    })
+    return documentsData;
+}
+
+export async function getItemsByOrder() {
+    const colectionProducts = collection(DB, "products");
+    const q = query(colectionProducts, orderBy("index"), limit(10));
+    const documentos = await getDocs(q);
+    const documentsData = documentos.docs.map((doc) => {
+
+    return {
+        ...doc.data(),
+        id: doc.id,
+    };
+    });
+    return documentsData;
+}
+
+export async function getSingleItem(idItem) {
+    const docRef = doc(DB, "products", idItem);
+    const documentos = await getDoc(docRef);
+    const itemData = documentos.data();
+    itemData.id = documentos.id;
+
+    return itemData;
+
+}
+
+
+export async function getItemsByCategory(categoryParams) {
+    const collectionRef = collection(DB, "products");
+    const queryCat = query(
+        collectionRef,
+    where("category", "==", categoryParams));
+    
+    const documentos = await getDocs(queryCat);
+    const documentsData = documentos.docs.map((doc) => {
+        return {
+            ...doc.data(),
+            id: doc.id,
+    };
+    });
+    return documentsData;
+}
+
+
+    export async function createOrder(order) {
+    const collectionRef = collection(DB, "orders");
+    const docOrder = await addDoc(collectionRef, order);
+    return docOrder.id;
+}
+
+    export async function exportArrayToFirestore() {
+    const products = [ 
+
+        {
     id: 1,
     title: "Jon Snow",
     price: 2000,
@@ -179,7 +259,13 @@ const products = [
         imgurl: "https://http2.mlstatic.com/D_NQ_NP_905712-MLA43657819010_102020-O.jpg",
     },
 
-
     ];
 
-    export default products;
+    const collectionRef = collection(DB, "products");
+
+    for (let item of products) {
+    item.index = item.id;
+    delete item.id;
+    let docOrder = await addDoc(collectionRef, item);
+    console.log("Documento creado, id:", docOrder.id);
+}}

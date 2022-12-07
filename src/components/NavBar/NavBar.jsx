@@ -1,5 +1,5 @@
 import React from 'react'
-import CartWidget from '../CartWidget/CartWidget';
+import CartWidget from './CartWidget';
 import "./navBar.css";
 import {Link} from "react-router-dom";
 
@@ -17,7 +17,7 @@ return (
                 <Link to="/category/HarryP">Harry Potter</Link>
             </li>
             <li>
-                <Link to="/"><CartWidget/></Link>
+                <CartWidget/>
             </li>
         </ul>
     </nav>
