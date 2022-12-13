@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./CartForm.css"
-import { Link } from "react-router-dom";
+
 
 export default function CartForm(props) {
     const [data, setData] = useState({
@@ -8,6 +8,7 @@ export default function CartForm(props) {
     email: "",
     phone: "",
 });
+
 
 function onInputChange(evt) {
     let nameInput = evt.target.name;
@@ -62,15 +63,12 @@ return (
             type="phone"
             onChange={onInputChange}/>
     </div>
-        
-        <Link to="/thankyou/:idOrder">
-        <button
+        <button /* onTouchButton={(evt) => props.onSubmit(evt,data)} */
         disabled={data.name === "" || data.phone === "" || data.email === ""}
         type="submit">
         Finalizar Compra
         </button>
-        </Link>
-
     </form>
+
 );
 }

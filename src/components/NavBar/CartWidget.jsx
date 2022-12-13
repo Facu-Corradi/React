@@ -8,7 +8,7 @@ function CartWidget() {
   return (
     <div>
       <Link to="/cart">🛒</Link>
-      <span>{miContext.itemInCart}</span>
+      <span>{miContext.itemsInCart()}</span>
     </div>
   )
 }

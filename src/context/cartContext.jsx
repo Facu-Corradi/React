@@ -39,7 +39,7 @@ export function CartContextProvider({children}) {
         return totalPrice;
     }
 
-    function removeItem(idRemove) {
+    function removeItem() {
         const newCart = [...cart];
         newCart.pop();
         setCart(newCart);

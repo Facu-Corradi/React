@@ -18,7 +18,7 @@ function CartView() {
             </div>
     );
 
-    async function handleCheckout(data) {
+    async function handleCheckout(evt, data) {
         const order = {
             buyer: data,
             items: cart,
